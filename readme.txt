@@ -12,3 +12,5 @@ https://www.npmjs.com/package/overlay-navbar
 npm i webfontloader
 
 npm i react-rating-stars-component
+
+https://www.npmjs.com/package/react-material-ui-carousel
