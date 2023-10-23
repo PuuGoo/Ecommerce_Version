@@ -12,6 +12,7 @@ import { useAlert } from "react-alert";
 
 function ProductDetails() {
   const { id } = useParams();
+  // console.log(id);
 
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -36,7 +37,6 @@ function ProductDetails() {
     value: product.rating,
     isHalf: true,
   };
-
   return (
     <Fragment>
       {loading ? (

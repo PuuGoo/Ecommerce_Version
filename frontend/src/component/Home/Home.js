@@ -8,20 +8,11 @@ import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 
-const product = {
-  name: "Blue Tshirt",
-  images: [{ url: "http://i.ibb.co/DRST11n/1.webp" }],
-  price: "$3000",
-  _id: "abhishek",
-};
-
 const Home = () => {
   const alert = useAlert();
 
   const dispatch = useDispatch();
-  const { loading, products, productsCount, error } = useSelector(
-    (state) => state.products
-  );
+  const { loading, products, error } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {

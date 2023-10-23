@@ -10,26 +10,28 @@ import {
   CLEAR_ERRORS,
 } from "../constants/productConstants.js";
 
-const getProduct = () => (dispatch) => {
-  dispatch({ type: ALL_PRODUCT_REQUEST });
-
-  axios
-    .get("/api/v1/products")
-    .then((response) => {
-      const products = response.data;
-      dispatch({
-        type: ALL_PRODUCT_SUCCESS,
-        payload: products,
+const getProduct =
+  (keyword = "", currentPage = 1, price = [0, 25000]) =>
+  (dispatch) => {
+    dispatch({ type: ALL_PRODUCT_REQUEST });
+    const link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+    axios
+      .get(link)
+      .then((response) => {
+        const products = response.data;
+        dispatch({
+          type: ALL_PRODUCT_SUCCESS,
+          payload: products,
+        });
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        dispatch({
+          type: ALL_PRODUCT_FAIL,
+          payload: errorMsg,
+        });
       });
-    })
-    .catch((error) => {
-      const errorMsg = error.message;
-      dispatch({
-        type: ALL_PRODUCT_FAIL,
-        payload: errorMsg,
-      });
-    });
-};
+  };
 
 // Get Products Details
 export const getProductDetails = (id) => async (dispatch) => {
