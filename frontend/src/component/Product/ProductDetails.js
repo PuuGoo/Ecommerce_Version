@@ -10,6 +10,7 @@ import ReviewCard from "./ReviewCard";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
+import { addItemsToCart } from "../../actions/cartAction";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -54,6 +55,11 @@ function ProductDetails() {
     const qty = quantity - 1;
     setQuantity(qty);
   };
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(id, quantity));
+    alert.success("Item Added To Cart");
+  };
   return (
     <Fragment>
       {loading ? (
@@ -96,7 +102,7 @@ function ProductDetails() {
                     <input readOnly type="number" value={quantity} />
                     <button onClick={increaseQuantity}>+</button>
                   </div>
-                  <button>Add to Cart</button>
+                  <button onClick={addToCartHandler}>Add to Cart</button>
                 </div>
 
                 <p>
