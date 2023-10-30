@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import imageProfile from "../../images/Profile.png";
-const LoginSignUp = ({location }) => {
+const LoginSignUp = ({ location }) => {
   location = useLocation();
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -36,7 +36,7 @@ const LoginSignUp = ({location }) => {
 
   const { name, email, password } = user;
 
-  const [avatar, setAvatar] = useState("/Profile.png");
+  const [avatar, setAvatar] = useState(imageProfile);
   const [avatarPreview, setAvatarPreview] = useState(imageProfile);
 
   const loginSubmit = (e) => {
