@@ -5,13 +5,18 @@ import productReducer, {
   productDetailsReducer,
 } from "./reducers/productReducer.js";
 import logger from "redux-logger";
-import { profileReducer, userReducer } from "./reducers/userReducer.js";
+import {
+  forgotPasswordReducer,
+  profileReducer,
+  userReducer,
+} from "./reducers/userReducer.js";
 
 const rootReducer = combineReducers({
   products: productReducer,
   productsDetails: productDetailsReducer,
   user: userReducer,
   profile: profileReducer,
+  forgotPassword: forgotPasswordReducer,
 });
 
 const store = createStore(
