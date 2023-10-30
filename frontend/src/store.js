@@ -5,10 +5,12 @@ import productReducer, {
   productDetailsReducer,
 } from "./reducers/productReducer.js";
 import logger from "redux-logger";
+import { userReducer } from "./reducers/userReducer.js";
 
 const rootReducer = combineReducers({
   products: productReducer,
   productsDetails: productDetailsReducer,
+  user: userReducer,
 });
 
 const store = createStore(
