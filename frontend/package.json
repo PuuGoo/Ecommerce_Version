@@ -13,6 +13,7 @@
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8",
     "@mui/styles": "^5.14.7",
+    "@mui/x-data-grid": "^6.17.0",
     "@stripe/react-stripe-js": "^2.3.1",
     "@stripe/stripe-js": "^2.1.10",
     "@testing-library/jest-dom": "^5.17.0",
@@ -23,10 +24,10 @@
     "country-state-city": "^3.2.1",
     "express-fileupload": "^1.4.1",
     "overlay-navbar": "^1.2.3",
-    "react": "^18.2.0",
+    "react": "^17.0.0 || ^18.0.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
-    "react-dom": "^18.2.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.10.1",
     "react-js-pagination": "^3.0.3",
@@ -42,6 +43,10 @@
     "replace-js-pagination": "^1.0.5",
     "web-vitals": "^2.1.4",
     "webfontloader": "^1.6.28"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
