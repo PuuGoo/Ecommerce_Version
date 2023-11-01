@@ -4,12 +4,18 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Config
-
-dotenv.config({
-  path: "backend/config/config.env",
-});
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  dotenv.config({
+    path: "backend/config/config.env",
+  });
+}
 
 const app = express();
 
@@ -28,6 +34,12 @@ app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use("/api/v1", payment);
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+});
 // Middware for Errors
 app.use(errorMiddleware);
 
